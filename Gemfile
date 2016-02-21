@@ -16,6 +16,7 @@ gemspec
 gem 'rails-api'
 gem 'active_model_serializers', git: 'https://github.com/rails-api/active_model_serializers.git'
 gem 'friendly_id', '~> 5.1.0'
+gem 'active_hash_relation', git: 'https://github.com/mdamaceno/active_hash_relation.git', branch: 'fix/for_rails_engine'
 
 group :test do
   gem 'minitest'

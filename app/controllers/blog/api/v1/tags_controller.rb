@@ -1,4 +1,4 @@
-class Blog::Api::V1::TagsController < ApplicationController
+class Blog::Api::V1::TagsController < Blog::Api::V1::BaseController
   before_action :find_tag, only: [:show, :update, :destroy]
 
   def index

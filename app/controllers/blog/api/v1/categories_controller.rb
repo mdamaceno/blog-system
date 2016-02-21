@@ -1,8 +1,11 @@
-class Blog::Api::V1::CategoriesController < ApplicationController
+class Blog::Api::V1::CategoriesController < Blog::Api::V1::BaseController
   before_action :find_category, only: [:show, :update, :destroy]
 
   def index
     @categories = Blog::Category.all
+
+    @categories = apply_filters(@categories, params)
+
     render json: @categories
   end
 

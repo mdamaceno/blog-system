@@ -1,4 +1,11 @@
 GIT
+  remote: https://github.com/mdamaceno/active_hash_relation.git
+  revision: c31ffa8395fdd9e43ebfb3d75e3c3927beb881d5
+  branch: fix/for_rails_engine
+  specs:
+    active_hash_relation (1.1.0)
+
+GIT
   remote: https://github.com/rails-api/active_model_serializers.git
   revision: f02f0849b1de9bd6dba0892aead1862064d29ce1
   specs:
@@ -172,6 +179,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  active_hash_relation!
   active_model_serializers!
   annotate (~> 2.7)
   blog!

@@ -20,4 +20,12 @@ class Blog::Api::V1::CategoriesSerializerTest < ActionController::TestCase
   test 'has a description' do
     assert_equal @resource.description, @attribute['description']
   end
+
+  test 'has a created_at' do
+    assert_equal @resource.created_at, @attribute['created_at']
+  end
+
+  test 'has an updated_at' do
+    assert_equal @resource.updated_at, @attribute['updated_at']
+  end
 end

@@ -21,6 +21,11 @@ class Blog::Api::V1::CategoriesControllerTest < ActionController::TestCase
     assert_not_nil result
   end
 
+  test 'GET #show returns 404 if category is not found' do
+    result = get :show, id: 999, format: :json
+    assert_response :not_found
+  end
+
   # POST #create
 
   test 'POST #create returns a successful json string with the new category' do
