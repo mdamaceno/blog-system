@@ -11,18 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160220143202) do
+ActiveRecord::Schema.define(version: 20160223162058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "blog_categories", force: :cascade do |t|
-    t.string   "name"
+    t.string   "name",        null: false
     t.string   "slug"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
+
+  add_index "blog_categories", ["slug"], name: "index_blog_categories_on_slug", unique: true, using: :btree
 
   create_table "blog_tags", force: :cascade do |t|
     t.string   "name",       null: false
@@ -30,6 +32,31 @@ ActiveRecord::Schema.define(version: 20160220143202) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  add_index "blog_tags", ["slug"], name: "index_blog_tags_on_slug", unique: true, using: :btree
+
+  create_table "blog_users", force: :cascade do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "slug",                                   null: false
+    t.string   "email",                                  null: false
+    t.string   "password"
+    t.string   "role",                 default: "guest"
+    t.boolean  "status",               default: false
+    t.boolean  "remember",             default: false
+    t.datetime "remember_at"
+    t.datetime "last_login_at"
+    t.datetime "last_logout_at"
+    t.datetime "reset_password_at"
+    t.boolean  "confirmed",            default: false
+    t.datetime "confirmed_at"
+    t.string   "authentication_token"
+    t.datetime "created_at",                             null: false
+    t.datetime "updated_at",                             null: false
+  end
+
+  add_index "blog_users", ["email"], name: "index_blog_users_on_email", unique: true, using: :btree
+  add_index "blog_users", ["slug"], name: "index_blog_users_on_slug", unique: true, using: :btree
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string   "slug",                      null: false
