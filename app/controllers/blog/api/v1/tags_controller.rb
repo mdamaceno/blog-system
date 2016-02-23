@@ -36,7 +36,7 @@ class Blog::Api::V1::TagsController < Blog::Api::V1::BaseController
   private
 
   def find_tag
-    @tag ||= Blog::Tag.find(params[:id])
+    @tag ||= Blog::Tag.friendly.find(params[:id])
   end
 
   def tag_params
